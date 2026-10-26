@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kasir Kosmetik Alessandra</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f0f4;--sf:#fff;--sf2:#faf6fa;--tx:#2a1830;--mu:#7b6a80;--ln:#e5dce8;--pr:#8a1f55;--pt:#fff;--ok:#1f7a4d;--wr:#b4540a;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171019;--sf:#241a28;--sf2:#2d2132;--tx:#f3e9f5;--mu:#a996ae;--ln:#3d2d43;--pr:#e0679d;--pt:#2a0f1c;--ok:#5fd09a;--wr:#f0a35e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#171019;--sf:#241a28;--sf2:#2d2132;--tx:#f3e9f5;--mu:#a996ae;--ln:#3d2d43;--pr:#e0679d;--pt:#2a0f1c;--ok:#5fd09a;--wr:#f0a35e;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:500 15px/1.45 "Plus Jakarta Sans",system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--sf);border-bottom:1px solid var(--ln)}
+h1{margin:0;font-size:20px;font-weight:800;letter-spacing:-.02em}
+h2{margin:0 0 10px;font-size:16px;font-weight:800}
+nav{display:flex;gap:4px;background:var(--sf2);padding:4px;border-radius:12px}
+nav button{border:0;background:none;color:var(--mu);font:inherit;font-weight:700;padding:8px 16px;border-radius:9px;cursor:pointer}
+nav button.on{background:var(--pr);color:var(--pt)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--pr);outline-offset:2px}
+main{padding:16px 18px;max-width:1200px;margin:0 auto}
+.split{display:grid;grid-template-columns:1fr 360px;gap:16px;align-items:start}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:16px}
+input,select{font:inherit;color:var(--tx);background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:9px 11px;min-width:0}
+#q{width:100%;margin-bottom:10px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px}
+.chip{flex:none;border:1px solid var(--ln);background:var(--sf);color:var(--tx);font:inherit;font-size:13px;font-weight:700;padding:6px 13px;border-radius:99px;cursor:pointer}
+.chip.on{background:var(--pr);color:var(--pt);border-color:var(--pr)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.p{text-align:left;font:inherit;color:var(--tx);background:var(--sf);border:1px solid var(--ln);border-left:5px solid var(--h);border-radius:12px;padding:11px 12px;cursor:pointer;display:flex;flex-direction:column;gap:3px}
+.p:hover:not(:disabled){border-color:var(--pr);border-left-color:var(--h)}
+.p:disabled{opacity:.45;cursor:not-allowed}
+.p b{font-size:14px;line-height:1.3}
+.p small{color:var(--mu);font-size:12px}
+.p .pr{font-weight:800;color:var(--pr);margin-top:4px}
+.low{color:var(--wr)!important;font-weight:700}
+.line{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:9px 0;border-bottom:1px solid var(--ln)}
+.line .n{font-weight:700}.line .s{color:var(--mu);font-size:13px}
+.qty{display:flex;align-items:center;gap:6px;grid-column:1/-1;margin-top:4px}
+.qty button{width:30px;height:30px;border-radius:8px;border:1px solid var(--ln);background:var(--sf2);color:var(--tx);font:inherit;font-weight:800;cursor:pointer}
+.qty .rm{margin-left:auto;width:auto;padding:0 10px;font-size:13px;font-weight:600;color:var(--mu)}
+.empty{color:var(--mu);padding:18px 0;text-align:center}
+.row{display:flex;gap:8px;align-items:center;margin-top:12px}
+.row label{flex:none;color:var(--mu);font-size:13px;font-weight:700;width:64px}
+.row input{flex:1}
+.t{display:flex;justify-content:space-between;margin-top:8px;color:var(--mu)}
+.t.big{color:var(--tx);font-size:20px;font-weight:800;margin-top:12px}
+.quick{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.quick button{border:1px solid var(--ln);background:var(--sf2);color:var(--tx);font:inherit;font-size:13px;font-weight:700;border-radius:8px;padding:6px 10px;cursor:pointer}
+.pay{width:100%;margin-top:14px;border:0;border-radius:12px;background:var(--pr);color:var(--pt);font:inherit;font-size:16px;font-weight:800;padding:13px;cursor:pointer}
+.pay:disabled{opacity:.4;cursor:not-allowed}
+.ok{color:var(--ok);font-weight:800}.bad{color:var(--wr);font-weight:700}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:780px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--ln)}
+th{color:var(--mu);font-size:13px;font-weight:700}
+td input{width:100%;max-width:120px;padding:6px 8px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:16px}
+.btn{border:0;border-radius:10px;background:var(--pr);color:var(--pt);font:inherit;font-weight:800;padding:10px 14px;cursor:pointer}
+.link{border:0;background:none;color:var(--wr);font:inherit;font-weight:700;cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:14px}
+.stat{background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:12px 14px}
+.stat span{color:var(--mu);font-size:13px}.stat b{display:block;font-size:22px;font-weight:800;margin-top:2px}
+.hide{display:none!important}
+.modal{position:fixed;inset:0;background:rgba(20,8,24,.55);display:flex;align-items:center;justify-content:center;padding:16px;z-index:5}
+.rc{background:var(--sf);border-radius:16px;padding:20px;width:100%;max-width:360px;max-height:90vh;overflow:auto}
+.rc h2{text-align:center;margin:0}.rc .c{text-align:center;color:var(--mu);font-size:13px;margin-bottom:10px}
+.rc .it{display:flex;justify-content:space-between;gap:10px;padding:4px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>Kasir Kosmetik Alessandra</h1>
+  <nav>
+    <button data-v="kasir" class="on">Kasir</button>
+    <button data-v="produk">Produk</button>
+    <button data-v="riwayat">Riwayat</button>
+    <button data-v="cek">Cek harga</button>
+  </nav>
+  <button id="auth-btn" class="chip">Masuk admin</button>
+</header>
+<main>
+  <section id="v-kasir" class="split">
+    <div>
+      <input id="q" type="search" placeholder="Cari nama produk atau SKU">
+      <div id="cats" class="chips"></div>
+      <div id="grid" class="grid"></div>
+    </div>
+    <aside class="card">
+      <h2>Keranjang</h2>
+      <div id="lines"></div>
+      <div class="row"><label for="disc">Diskon</label><input id="disc" type="number" min="0" value="0"><select id="dtype"><option value="rp">Rp</option><option value="pct">%</option></select></div>
+      <div class="row"><label for="meth">Bayar</label><select id="meth" style="flex:1"><option value="Tunai">Tunai</option><option value="QRIS">QRIS</option><option value="Debit">Kartu debit</option></select></div>
+      <div class="t"><span>Subtotal</span><span id="sub">Rp0</span></div>
+      <div class="t"><span>Diskon</span><span id="dv">Rp0</span></div>
+      <div class="t big"><span>Total</span><span id="tot">Rp0</span></div>
+      <div id="cashbox">
+        <div class="row"><label for="cash">Diterima</label><input id="cash" type="number" min="0" placeholder="0"></div>
+        <div class="quick"><button data-c="pas">Uang pas</button><button data-c="50000">50rb</button><button data-c="100000">100rb</button><button data-c="200000">200rb</button></div>
+        <div class="t"><span>Kembalian</span><span id="chg">Rp0</span></div>
+      </div>
+      <button id="pay" class="pay" disabled>Bayar</button>
+    </aside>
+  </section>
+
+  <section id="v-produk" class="hide">
+    <div class="card" style="margin-bottom:16px"><h2>Info toko di struk</h2><div class="form"><input id="st-addr" placeholder="Alamat toko"><input id="st-tel" placeholder="Nomor telepon"><button id="st-save" class="btn">Simpan info toko</button></div><div id="st-msg" class="ok"></div></div>
+    <div class="card">
+      <h2>Tambah produk</h2>
+      <div class="form">
+        <input id="f-sku" placeholder="SKU">
+        <input id="f-name" placeholder="Nama produk">
+        <input id="f-cat" placeholder="Kategori (mis. Bibir)">
+        <input id="f-price" type="number" min="0" placeholder="Harga (Rp)">
+        <input id="f-stock" type="number" min="0" placeholder="Stok">
+        <button id="f-add" class="btn">Simpan produk</button>
+      </div>
+      <div id="f-msg" class="bad"></div>
+      <div class="wrap"><table><thead><tr><th>SKU</th><th>Nama</th><th>Kategori</th><th>Harga</th><th>Stok</th><th>Barcode</th><th></th></tr></thead><tbody id="ptable"></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="v-riwayat" class="hide">
+    <div class="stats">
+      <div class="stat"><span>Transaksi hari ini</span><b id="s-n">0</b></div>
+      <div class="stat"><span>Omzet hari ini</span><b id="s-o">Rp0</b></div>
+      <div class="stat"><span>Produk stok menipis</span><b id="s-l">0</b></div>
+    </div>
+    <div class="card"><h2>Transaksi terakhir</h2><div id="hist"></div></div>
+  </section>
+  <section id="v-cek" class="hide"><div class="card" style="max-width:480px;margin:0 auto"><h2>Cek harga</h2><p style="color:var(--mu);margin:0 0 10px">Scan barcode produk atau ketik SKU, lalu tekan Enter.</p><input id="ck" placeholder="Scan atau ketik SKU" style="width:100%"><button id="cam" class="btn" style="margin-top:10px">Scan dengan kamera</button><video id="vid" class="hide" playsinline muted style="width:100%;margin-top:10px;border-radius:10px"></video><div id="ck-out"></div></div></section>
+  <section id="v-login" class="hide"><div class="card" style="max-width:380px;margin:0 auto"><h2 id="lg-t">Masuk admin</h2><div class="form" style="grid-template-columns:1fr"><input id="lg-p" type="password" placeholder="Kata sandi"><input id="lg-p2" type="password" placeholder="Ulangi kata sandi" class="hide"><button id="lg-go" class="btn">Masuk</button></div><div id="lg-m" class="bad"></div></div></section>
+</main>
+<div id="modal" class="modal hide"><div class="rc" id="rc"></div></div>
+
+<script>
+const K = 'kasir-kosmetik-v1';
+const seed = [
+  ['LP-001','Lipstik matte Rose','Bibir',89000,24],['LP-002','Lip tint Cherry','Bibir',59000,30],
+  ['LP-003','Lip balm SPF 15','Bibir',35000,40],['FD-001','Foundation cair 30 ml','Wajah',129000,15],
+  ['FD-002','Bedak tabur translucent','Wajah',75000,20],['CS-001','Cushion SPF 40','Wajah',149000,12],
+  ['MT-001','Maskara waterproof','Mata',69000,18],['MT-002','Eyeliner pensil hitam','Mata',39000,35],
+  ['PL-001','Palet eyeshadow 9 warna','Mata',119000,8],['SK-001','Pelembap wajah 50 g','Perawatan',85000,22],
+  ['SK-002','Sunscreen gel SPF 50','Perawatan',99000,25],['SK-003','Micellar water 100 ml','Perawatan',55000,3],
+  ['NL-001','Kutek gel merah','Kuku',29000,28]
+];
+function load() {
+  try { const r = localStorage.getItem(K); if (r) return JSON.parse(r); } catch (e) {}
+  return { n: seed.length + 1, products: seed.map((s, i) => ({ id: i + 1, sku: s[0], name: s[1], cat: s[2], price: s[3], stock: s[4] })), sales: [] };
+}
+let S = load(); S.store = S.store || {}; S.store.addr = S.store.addr || 'Prambon Watutulis, Jawa Timur'; S.store.tel = S.store.tel || '082264556183';
+function save() { try { localStorage.setItem(K, JSON.stringify(S)); } catch (e) {} }
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const rp = n => 'Rp' + Math.round(n).toLocaleString('id-ID');
+const hue = s => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
+let cart = {}, cat = 'Semua';
+
+function renderCats() {
+  const cs = ['Semua', ...new Set(S.products.map(p => p.cat))];
+  if (!cs.includes(cat)) cat = 'Semua';
+  $('#cats').innerHTML = cs.map(c => `<button class="chip ${c === cat ? 'on' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+}
+function renderGrid() {
+  const q = $('#q').value.trim().toLowerCase();
+  const list = S.products.filter(p => (cat === 'Semua' || p.cat === cat) && (!q || (p.name + ' ' + p.sku).toLowerCase().includes(q)));
+  $('#grid').innerHTML = list.length ? list.map(p => {
+    const left = p.stock - (cart[p.id] || 0);
+    return `<button class="p" style="--h:hsl(${hue(p.cat)},50%,58%)" data-add="${p.id}" ${left <= 0 ? 'disabled' : ''}>
+      <b>${esc(p.name)}</b><small>${esc(p.sku)}</small><span class="pr">${rp(p.price)}</span>
+      <small class="${left <= 5 ? 'low' : ''}">${left <= 0 ? 'Stok habis' : 'Stok ' + left}</small></button>`;
+  }).join('') : '<div class="empty">Produk tidak ditemukan.</div>';
+}
+function totals() {
+  let sub = 0;
+  for (const id in cart) { const p = S.products.find(x => x.id == id); if (p) sub += p.price * cart[id]; }
+  const d = Math.max(0, +$('#disc').value || 0);
+  const dv = $('#dtype').value === 'pct' ? sub * Math.min(d, 100) / 100 : Math.min(d, sub);
+  return { sub, dv: Math.round(dv), total: Math.round(sub - dv) };
+}
+function renderCart() {
+  const ids = Object.keys(cart);
+  $('#lines').innerHTML = ids.length ? ids.map(id => {
+    const p = S.products.find(x => x.id == id);
+    return `<div class="line"><span class="n">${esc(p.name)}</span><b>${rp(p.price * cart[id])}</b>
+      <span class="s">${rp(p.price)} per item</span><span></span>
+      <div class="qty"><button data-dec="${id}" aria-label="Kurangi">−</button><span>${cart[id]}</span><button data-inc="${id}" aria-label="Tambah">+</button><button class="rm" data-rm="${id}">Hapus</button></div></div>`;
+  }).join('') : '<div class="empty">Pilih produk untuk memulai transaksi.</div>';
+  const t = totals();
+  $('#sub').textContent = rp(t.sub); $('#dv').textContent = '−' + rp(t.dv); $('#tot').textContent = rp(t.total);
+  const cashOn = $('#meth').value === 'Tunai';
+  $('#cashbox').classList.toggle('hide', !cashOn);
+  const paid = +$('#cash').value || 0, chg = paid - t.total;
+  $('#chg').innerHTML = !cashOn || !ids.length ? 'Rp0' : chg >= 0 ? `<span class="ok">${rp(chg)}</span>` : `<span class="bad">Kurang ${rp(-chg)}</span>`;
+  $('#pay').disabled = !ids.length || (cashOn && paid < t.total);
+  renderGrid();
+}
+function setQty(id, n) {
+  const p = S.products.find(x => x.id == id);
+  if (!p) return;
+  n = Math.min(n, p.stock);
+  if (n <= 0) delete cart[id]; else cart[id] = n;
+  renderCart();
+}
+function pay() {
+  const t = totals(), meth = $('#meth').value, paid = meth === 'Tunai' ? (+$('#cash').value || 0) : t.total;
+  const items = Object.keys(cart).map(id => {
+    const p = S.products.find(x => x.id == id); p.stock -= cart[id];
+    return { name: p.name, price: p.price, qty: cart[id] };
+  });
+  const sale = { id: Date.now(), t: Date.now(), items, sub: t.sub, dv: t.dv, total: t.total, meth, paid, chg: paid - t.total };
+  S.sales.unshift(sale); S.sales = S.sales.slice(0, 500); save();
+  cart = {}; $('#disc').value = 0; $('#cash').value = '';
+  renderCart(); showReceipt(sale);
+}
+function showReceipt(s) {
+  $('#rc').innerHTML = `<h2>Alessandra Kosmetik</h2><div class="c">${S.store.addr ? esc(S.store.addr) + '<br>' : ''}${S.store.tel ? 'Telp. ' + esc(S.store.tel) + '<br>' : ''}Struk pembayaran<br>${new Date(s.t).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })}</div>
+    ${s.items.map(i => `<div class="it"><span>${esc(i.name)} × ${i.qty}</span><span>${rp(i.price * i.qty)}</span></div>`).join('')}
+    <hr style="border:0;border-top:1px solid var(--ln)">
+    <div class="it"><span>Subtotal</span><span>${rp(s.sub)}</span></div>
+    ${s.dv ? `<div class="it"><span>Diskon</span><span>−${rp(s.dv)}</span></div>` : ''}
+    <div class="it"><b>Total</b><b>${rp(s.total)}</b></div>
+    <div class="it"><span>${esc(s.meth)}</span><span>${rp(s.paid)}</span></div>
+    ${s.meth === 'Tunai' ? `<div class="it"><span>Kembalian</span><span>${rp(s.chg)}</span></div>` : ''}
+    <button class="pay" id="rc-close">Transaksi baru</button>`;
+  $('#modal').classList.remove('hide');
+}
+function renderProducts() {
+  $('#ptable').innerHTML = S.products.map(p => `<tr>
+    <td>${esc(p.sku)}</td><td>${esc(p.name)}</td><td>${esc(p.cat)}</td>
+    <td><input type="number" min="0" value="${p.price}" data-id="${p.id}" data-f="price" aria-label="Harga ${esc(p.name)}"></td>
+    <td><input type="number" min="0" value="${p.stock}" data-id="${p.id}" data-f="stock" aria-label="Stok ${esc(p.name)}"></td>
+    <td>${bc(p.sku)}</td><td><button class="link" data-del="${p.id}">Hapus</button></td></tr>`).join('');
+}
+function renderHistory() {
+  const day = new Date().toDateString();
+  const today = S.sales.filter(s => new Date(s.t).toDateString() === day);
+  $('#s-n').textContent = today.length;
+  $('#s-o').textContent = rp(today.reduce((a, s) => a + s.total, 0));
+  $('#s-l').textContent = S.products.filter(p => p.stock <= 5).length;
+  $('#hist').innerHTML = S.sales.length ? S.sales.slice(0, 50).map(s => `<div class="line"><span class="n">${new Date(s.t).toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' })} · ${esc(s.meth)}</span><b>${rp(s.total)}</b>
+    <span class="s">${esc(s.items.map(i => i.name + ' ×' + i.qty).join(', '))}</span><span></span></div>`).join('') : '<div class="empty">Belum ada transaksi.</div>';
+}
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('button'); if (!t) return;
+  const d = t.dataset;
+  if (d.v) go(d.v);
+  if (d.cat) { cat = d.cat; renderCats(); renderGrid(); }
+  if (d.add) setQty(d.add, (cart[d.add] || 0) + 1);
+  if (d.inc) setQty(d.inc, cart[d.inc] + 1);
+  if (d.dec) setQty(d.dec, cart[d.dec] - 1);
+  if (d.rm) setQty(d.rm, 0);
+  if (d.c) { $('#cash').value = d.c === 'pas' ? totals().total : d.c; renderCart(); }
+  if (d.del) { S.products = S.products.filter(p => p.id != d.del); delete cart[d.del]; save(); renderProducts(); }
+  if (t.id === 'pay') pay();
+  if (t.id === 'auth-btn') { if (admin) { admin = false; try { sessionStorage.removeItem('adm'); } catch (x) {} go('kasir'); } else { pending = 'produk'; go('login'); } }
+  if (t.id === 'lg-go') login();
+  if (t.id === 'st-save') { S.store = { addr: $('#st-addr').value.trim(), tel: $('#st-tel').value.trim() }; save(); $('#st-msg').textContent = 'Info toko tersimpan.'; }
+  if (t.id === 'cam') startCam();
+  if (t.id === 'rc-close') $('#modal').classList.add('hide');
+  if (t.id === 'f-add') {
+    const sku = $('#f-sku').value.trim().toUpperCase().replace(/[^0-9A-Z-]/g, ''), name = $('#f-name').value.trim(), c = $('#f-cat').value.trim() || 'Lainnya';
+    const price = +$('#f-price').value, stock = +$('#f-stock').value || 0;
+    if (!sku || !name || !(price > 0)) { $('#f-msg').textContent = 'Isi SKU, nama, dan harga produk.'; return; }
+    if (S.products.some(p => p.sku.toLowerCase() === sku.toLowerCase())) { $('#f-msg').textContent = 'SKU ini sudah dipakai produk lain.'; return; }
+    S.products.push({ id: S.n++, sku, name, cat: c, price, stock }); save();
+    ['sku', 'name', 'cat', 'price', 'stock'].forEach(k => $('#f-' + k).value = '');
+    $('#f-msg').textContent = ''; renderProducts();
+  }
+});
+document.addEventListener('change', e => {
+  const t = e.target, p = t.dataset.id && S.products.find(x => x.id == t.dataset.id);
+  if (p) { p[t.dataset.f] = Math.max(0, +t.value || 0); save(); }
+});
+['#q'].forEach(s => $(s).addEventListener('input', renderGrid));
+['#disc', '#dtype', '#meth', '#cash'].forEach(s => $(s).addEventListener('input', renderCart));
+const C39 = {'0':'000110100','1':'100100001','2':'001100001','3':'101100000','4':'000110001','5':'100110000','6':'001110000','7':'000100101','8':'100100100','9':'001100100','A':'100001001','B':'001001001','C':'101001000','D':'000011001','E':'100011000','F':'001011000','G':'000001101','H':'100001100','I':'001001100','J':'000011100','K':'100000011','L':'001000011','M':'101000010','N':'000010011','O':'100010010','P':'001010010','Q':'000000111','R':'100000110','S':'001000110','T':'000010110','U':'110000001','V':'011000001','W':'111000000','X':'010010001','Y':'110010000','Z':'011010000','-':'010000101','*':'010010100'};
+function bc(t) {
+  const s = '*' + String(t).toUpperCase().replace(/[^0-9A-Z-]/g, '') + '*';
+  let x = 10, r = '';
+  for (const ch of s) {
+    const p = C39[ch]; if (!p) continue;
+    for (let i = 0; i < 9; i++) { const w = p[i] === '1' ? 3 : 1; if (i % 2 === 0) r += `<rect x="${x}" y="0" width="${w}" height="40"/>`; x += w; }
+    x += 1;
+  }
+  return `<svg viewBox="0 0 ${x + 9} 40" width="150" height="44" preserveAspectRatio="none" role="img" aria-label="Barcode ${esc(t)}"><rect width="100%" height="100%" fill="#fff"/><g fill="#000">${r}</g></svg>`;
+}
+const AK = 'kasir-admin-v1';
+let admin = false, pending = 'produk', stream = null, timer = null;
+try { admin = sessionStorage.getItem('adm') === '1'; } catch (e) {}
+async function sha(s) { const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('kasir:' + s)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join(''); }
+const DEF = '76f67652d0d6d54192383b20ee8a6173d9a74e4f2392e208de92856009c7d6df';
+function getPw() { try { return localStorage.getItem(AK) || DEF; } catch (e) { return DEF; } }
+function lmsg(m) { $('#lg-m').textContent = m; }
+function showLogin() {
+  const first = !getPw();
+  $('#lg-t').textContent = first ? 'Buat kata sandi admin' : 'Masuk admin';
+  $('#lg-p2').classList.toggle('hide', !first);
+  $('#lg-go').textContent = first ? 'Simpan dan masuk' : 'Masuk';
+  $('#lg-p').value = ''; $('#lg-p2').value = ''; lmsg('');
+}
+async function login() {
+  const p = $('#lg-p').value, first = !getPw();
+  try {
+    if (first) {
+      if (p.length < 4) return lmsg('Kata sandi minimal 4 karakter.');
+      if (p !== $('#lg-p2').value) return lmsg('Kata sandi tidak sama.');
+      localStorage.setItem(AK, await sha(p));
+    } else { const h = await sha(p); if (h !== DEF && h !== getPw()) return lmsg('Kata sandi salah.'); }
+  } catch (e) { return lmsg('Login tidak bisa diproses di browser ini.'); }
+  admin = true; try { sessionStorage.setItem('adm', '1'); } catch (e) {}
+  go(pending);
+}
+function go(v) {
+  if (!admin && (v === 'produk' || v === 'riwayat')) { pending = v; v = 'login'; }
+  if (v === 'login') showLogin();
+  if (v !== 'cek') stopCam();
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  ['kasir', 'produk', 'riwayat', 'cek', 'login'].forEach(x => $('#v-' + x).classList.toggle('hide', x !== v));
+  $('#auth-btn').textContent = admin ? 'Keluar admin' : 'Masuk admin';
+  if (v === 'produk') { renderProducts(); $('#st-addr').value = S.store.addr; $('#st-tel').value = S.store.tel; $('#st-msg').textContent = ''; }
+  if (v === 'riwayat') renderHistory();
+  if (v === 'kasir') { renderCats(); renderGrid(); }
+}
+function lookup(code) {
+  code = code.trim().toUpperCase();
+  const p = S.products.find(x => x.sku.toUpperCase() === code);
+  $('#ck-out').innerHTML = p ? `<div class="stat" style="margin-top:12px"><span>${esc(p.sku)} · ${esc(p.cat)}</span><b>${esc(p.name)}</b><b style="color:var(--pr)">${rp(p.price)}</b><span class="${p.stock <= 5 ? 'low' : ''}">${p.stock > 0 ? 'Stok tersedia' : 'Stok habis'}</span></div>` : '<div class="empty">Produk tidak ditemukan.</div>';
+}
+function stopCam() { clearInterval(timer); if (stream) stream.getTracks().forEach(t => t.stop()); stream = null; $('#vid').classList.add('hide'); }
+async function startCam() {
+  if (!('BarcodeDetector' in window)) { $('#ck-out').innerHTML = '<div class="empty">Browser ini belum mendukung scan kamera. Gunakan alat scan barcode atau ketik SKU.</div>'; return; }
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+    const v = $('#vid'); v.srcObject = stream; v.classList.remove('hide'); await v.play();
+    const det = new BarcodeDetector({ formats: ['code_39'] });
+    timer = setInterval(async () => { try { const r = await det.detect(v); if (r.length) { $('#ck').value = r[0].rawValue; lookup(r[0].rawValue); stopCam(); } } catch (e) {} }, 400);
+  } catch (e) { $('#ck-out').innerHTML = '<div class="empty">Kamera tidak bisa dibuka. Izinkan akses kamera atau ketik SKU.</div>'; }
+}
+$('#ck').addEventListener('keydown', e => { if (e.key === 'Enter') lookup(e.target.value); });
+['#lg-p', '#lg-p2'].forEach(s => $(s).addEventListener('keydown', e => { if (e.key === 'Enter') login(); }));
+$('#q').addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  const c = e.target.value.trim().toUpperCase(), p = S.products.find(x => x.sku.toUpperCase() === c);
+  if (p) { setQty(p.id, (cart[p.id] || 0) + 1); e.target.value = ''; renderGrid(); }
+});
+renderCats(); renderCart(); go('kasir');
+</script>
+</body>
+</html>
